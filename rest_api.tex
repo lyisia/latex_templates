@@ -1,0 +1,133 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage[T1]{fontenc}
+
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage[usenames,dvipsnames]{color} % Required for custom colors
+\usepackage{graphicx} % Required to insert images
+\usepackage{listings} % Required for insertion of code
+\usepackage{courier} % Required for the courier font
+\usepackage{minted} % to format Json
+
+\title{Title}
+\author{Author}
+\date{\today}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{\title} % Top left header
+\rhead{\firstxmark} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \protect\pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+
+\begin{document}
+	\begin{titlepage}
+		\maketitle
+	    \thispagestyle{empty}
+	\end{titlepage}
+	\newpage
+	
+	\newpage
+	
+	\tableofcontents
+	\newpage
+	
+	\section{function1}
+	Input parameters
+        \begin{minted}
+            [gobble=8,
+             linenos=false,
+             frame=none,
+             framesep=3mm,
+             xleftmargin=5pt,
+             samepage=true,
+             tabsize=3]{json}
+        {   
+            "input_string" : "string",
+            "input_int" : "int",
+            "input_array" : [
+                {
+                    "input_string" : "string",
+                    "input_int" : "int"
+                }
+            ]
+        }
+        \end{minted}
+        \label{input_parameters_function1}
+    Output parameters
+        \begin{minted}
+            [gobble=8,
+             linenos=false,
+             frame=none,
+             framesep=3mm,
+             xleftmargin=5pt,
+             samepage=true,
+             tabsize=3]{json}
+        {   
+            "result" : "boolean",
+            "data" : {
+                "output_string" : "string",
+                "output_int" : "int",
+                "output_array" : [
+                    {
+                        "output_string" : "string",
+                        "output_int" : "int"
+                    }
+                ]
+            }
+        }
+        \end{minted}
+        \label{output_parameters_function1}
+    Output examples
+        \begin{minted}
+        [gobble=8,
+             linenos=false,
+             frame=none,
+             framesep=3mm,
+             xleftmargin=5pt,
+             samepage=true,
+             tabsize=3]{json}
+        Code: 200
+        {
+            "result" : true,
+            "data" : {
+                "output_string" : "Hello World",
+                "output_int" : 1,
+                "output_array" : [
+                    "output_string" : "Hello World",
+                    "output_int" : 1
+                ]
+            }
+        }
+        
+        Code: 500
+        {
+            "result" : false,
+            "data" : {
+                "error_msg" : "An error occurred"
+            }
+        }
+        \end{minted}
+        \label{output_examples_function1}
+    
+\end{document}
